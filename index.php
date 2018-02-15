@@ -12,7 +12,7 @@
     <title>Index</title>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="./assets/css/" rel="stylesheet">
+    <link href="./assets/css/aperirond.css" rel="stylesheet">
 </head>
 <body>
     <?php if (empty($_GET['article']) || isset($_GET['add_to_cart'])) {

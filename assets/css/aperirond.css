@@ -3,16 +3,16 @@ a {
     padding: 5px;
     border: 2px black solid;
     border-radius: 5px;
-    color: inherit;
+    color: #40A497;
     text-decoration: inherit;
 }
 
 .valid {
-    color: green;
+    color: #40A497;
 }
 
 .unvalid {
-    color: red;
+    color: #40A497;
 }
 
 #article_box>header {
@@ -25,6 +25,7 @@ a {
 #article_title {
     font-size: 1.2em;
     display: block;
+    color:#E08100;
 }
 
 #article_disponible {
@@ -52,7 +53,7 @@ a {
 }
 
 #list_article_row {
-    border: 1px black solid;
+    border: 0;
     padding: 25px 50px;
 }
 
@@ -70,4 +71,9 @@ a {
     height: 150px;
     font-size: 30px;
     text-align: center;
+}
+button {
+    color: #E08100;
+    border: inherit;
+    background-color: inherit;
 }
