@@ -25,7 +25,7 @@
             $values[1] = $_GET['add_to_cart'];
             $values[2] = $_POST['quantity'];
             InsertValues($database, "cart", $fields, $values);
-            Header("Location: articles.php");
+            Header("Location: index.php");
         }
         else
             include "modules/list.php";
