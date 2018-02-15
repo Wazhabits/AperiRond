@@ -1,6 +1,6 @@
 <?php
     include "function/function.php";
-    $database = new PDO('mysql:host=localhost;dbname=projet', 'root', '');
+    $database = new PDO('mysql:host=localhost;dbname=aperirond', 'root', '');
 ?>
 
 <!doctype html>
