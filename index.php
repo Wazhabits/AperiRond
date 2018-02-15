@@ -12,6 +12,7 @@
     <title>Index</title>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="./assets/css/" rel="stylesheet">
 </head>
 <body>
     <?php if (empty($_GET['article']) || isset($_GET['add_to_cart'])) {
@@ -51,80 +52,5 @@
             </div>
         </div>
     <?php } ?>
-    <style>
-        a {
-            margin: 0;
-            padding: 5px;
-            border: 2px black solid;
-            border-radius: 5px;
-            color: inherit;
-            text-decoration: inherit;
-        }
-
-        .valid {
-            color: green;
-        }
-
-        .unvalid {
-            color: red;
-        }
-
-        #article_box>header {
-            display: flex;
-            justify-content: space-between;
-            height: 40px;
-            padding: 0 10px;
-        }
-
-        #article_title {
-            font-size: 1.2em;
-            display: block;
-        }
-
-        #article_disponible {
-            display:block;
-        }
-
-        #article_box>main {
-            width: 90%;
-            padding: 10px 0;
-            height: 100px;
-            margin: auto;
-            text-align: justify;
-            overflow: hidden;
-        }
-
-        #article_box>footer {
-            padding: 5px 25px;
-            text-align: right;
-        }
-
-        #article_box>footer>form {
-            margin: 0;
-            display: inline-block;
-            float: left;
-        }
-
-        #list_article_row {
-            border: 1px black solid;
-            padding: 25px 50px;
-        }
-
-        #article_box {
-            padding: 25px 0 0 0;
-            margin: 0;
-            height: 200px;
-            overflow: hidden;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        #no_article {
-            width: 100%;
-            padding: 50px;
-            height: 150px;
-            font-size: 30px;
-            text-align: center;
-        }
-    </style>
 </body>
 </html>
