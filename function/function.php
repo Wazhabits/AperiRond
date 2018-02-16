@@ -8,7 +8,7 @@ function GetTable($database, $table) {
 }
 
 function GetTableSpe($database, $table, $field, $value) {
-    $sql = "SELECT * FROM " . $table . " WHERE " . $field . " = " . $value;
+    $sql = "SELECT * FROM " . $table . " WHERE " . $field . " = " . $value . " ORDER BY id DESC";
     $query = $database->query($sql);
     $result = $query->fetchAll();
     return ($result);
@@ -42,5 +42,25 @@ function DeleteValue($_db_connected, $_table, $_field, $_value) {
     $sql = "DELETE FROM `".$_table."` WHERE ".$_field." = ".$_value;
     if ($_db_connected->query($sql) == false)
         return false;
+    return true;
+}
+
+
+function db_updateValue($_db_connected, $_table, $_field, $_value, $col, $_id) {
+    $sql = "UPDATE ".$_table." SET ".$_field." = '".$_value."' WHERE ".$col." = ".$_id;
+    if ($_db_connected->query($sql) == false)
+        return false;
+    return true;
+}
+
+function UpdateValues($_db_connected, $_table, $_fields, $_values, $_field,  $_id) {
+    $i = 0;
+    if (count($_fields) != count($_values))
+        return false;
+    while ($i < count($_fields)) {
+        if (db_updateValue($_db_connected, $_table, $_fields[$i], $_values[$i], $_field, $_id) == false)
+            return false;
+        $i++;
+    }
     return true;
 }

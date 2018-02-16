@@ -8,9 +8,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .frow {
-        width: 100%;
-    }
-</style>

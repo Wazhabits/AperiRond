@@ -15,24 +15,43 @@
         <link href="./assets/css/aperirond.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Aperi Rond</h1>
-        <?php if (empty($_GET['article']) || isset($_GET['add_to_cart']) || isset($_GET['del_cart'])) {
+        <h1><?php if (!isset($_GET['cmd_usr'])) { echo "Aperi Rond"; } else { echo "Commande"; } ?></h1>
+        <?php if(isset($_SESSION["login"])){
+
+            $id = $_SESSION["login"][0];
+            $prenom = $database->query("select prenom from users WHERE id = $id ");
+
+            $prenom = $prenom->fetchAll();
+
+            ?> <p style="text-align: center;">Bienvenue <?php echo $prenom[0]["prenom"]; ?>
+                <a href="modules/logout.php" title="Déconnexion">Se déconnecter <i style="font-size: 14px;" class="fas fa-sign-out-alt"></i></a></p>
+            <?php
+            if (isset($_GET['cmd'])) {
+                ?>
+                    <p class="success">Commande passée !</p>
+                <?php
+            }
+        }
+        if (empty($_GET['article']) || isset($_GET['add_to_cart']) || isset($_GET['del_cart']) || isset($_GET['cmd_usr'])) {
             if (isset($_GET['del_cart'])) {
                include "modules/del_cart.php";
             } else {
                 if (isset($_GET['add_to_cart']))
                     include "modules/add_to_cart.php";
                 else
-                    include "modules/list.php";
+                    if (isset($_GET['cmd_usr']))
+                        include "modules/tunnel.php";
+                    else
+                        include "modules/list.php";
             }
         } else
             include "modules/article.php";
         if (isset($_SESSION['login'])) {
-            include "modules/cart.php";
+            if (!isset($_GET['cmd_usr']))
+               include "modules/cart.php";
         }
-        else {
+        else
             include "modules/member.php";
-        }
         ?>
     </body>
 </html>

@@ -37,7 +37,7 @@ if(isset($_SESSION["error_message"])){
             $_SESSION['login'][2] = $result[0]['nom']." ".$result[0]['prenom'];
             $_SESSION['login'][3] = $result[0]['numrue']." ".$result[0]['rue']." ".$result[0]['ville']. ", ".$result[0]['cp'];
             $_SESSION['login'][4] = $result[0]['telephone'];
-            print_r($_SESSION['login']);
+            header("Location: index.php");
         }
     }
 ?>
