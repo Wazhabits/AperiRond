@@ -4,14 +4,10 @@
         <ul id="menu_sub">
             <li class="menu_item_sub">
                 <form action="treatment.php" method="post">
-                    <h2>Se connecter</h2>
                     <p><label for="email">Email</label><input type="text" id="email" name="email" placeholder="Entrer votre email"></p>
                     <p><label for="mdp">Mot de passe</label><input type="password" id="mdp" name="password" placeholder="Entrer votre mot de passe"><p>
                     <input name="" type="submit">
                 </form>
-            </li>
-            <li class="menu_item_sub">
-
             </li>
         </ul>
     </li>
@@ -31,6 +27,7 @@
 
     .menu_item_pri {
         width: 25%;
+        height: 50px;
         padding: 0;
         text-align: center;
         display: inline-block;
@@ -41,7 +38,8 @@
     }
 
     #menu_sub {
-        padding: 0;
+        padding: 25px;
+        margin: 0px;
         display: none;
     }
 
@@ -63,11 +61,6 @@
         float: right;
         height: 30px;
         width: 50%;
-    }
-    .menu_item_sub+button {
-        width: 50%;
-        float: right;
-        height: 30px;
     }
 
 </style>

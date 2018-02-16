@@ -15,6 +15,24 @@ a {
     color: #40A497;
 }
 
+p>a {
+    border: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    padding: 25px;
+}
+
+h2>i {
+    color: #E08100;
+}
+
 #article_box>header {
     display: flex;
     justify-content: space-between;
@@ -72,8 +90,109 @@ a {
     font-size: 30px;
     text-align: center;
 }
-button {
+footer>form>button {
     color: #E08100;
     border: inherit;
     background-color: inherit;
+}
+#button_connexion {
+    font-weight:bold;
+    color: black ;
+    background-color: #E08100;
+    border: 0;
+    border-radius: 5px;
+
+}
+#login_container {
+    padding: 25px 50px;
+
+}
+.label_connexion {
+    font-weight: bold;
+    color:#E08100;
+}
+input {
+    border-color: black;
+    border-radius: 5px;
+}
+
+
+#create_account{
+    color:#E08100;
+}
+
+#create_account_row>form>div {
+    padding: 0;
+    margin: 0;
+}
+
+#create_account_row>form {
+    padding: 0;
+    margin: 0;
+}
+
+.create_account_title{
+    text-align-all: center;
+    }
+#create_account_row {
+    color: #40A497;
+}
+#create_account_row>form>button {
+    font-weight:bold;
+    color: black ;
+    background-color: #E08100;
+    border: 0;
+    box-sizing: border-box;
+    margin: 25px 0;
+    padding: 5px 5px;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+input {
+    margin: 0 5%;
+    width: 90%;
+    border: 1px black solid;
+    border-radius: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+label {
+    line-height: 32px;
+    margin: 0;
+}
+
+#numrue {
+    width: 20%;
+    margin: 0;
+    margin-left: 5%;
+}
+
+#rue {
+    width: 70%;
+    margin: 0;
+}
+
+.right {
+    text-align: right;
+    float: right;
+}
+
+.center>a {
+    width: 100%;
+    border: inherit;
+    display: block;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+
+hr {
+    margin: 25px;
 }

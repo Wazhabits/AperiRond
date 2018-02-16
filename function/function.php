@@ -37,3 +37,10 @@ function InsertValues($_db_connected, $_table, $_fields, $_values){
         return false;
     return true;
 }
+
+function DeleteValue($_db_connected, $_table, $_field, $_value) {
+    $sql = "DELETE FROM `".$_table."` WHERE ".$_field." = ".$_value;
+    if ($_db_connected->query($sql) == false)
+        return false;
+    return true;
+}

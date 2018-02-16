@@ -17,21 +17,19 @@
                     <header><span id="article_title"><?php echo $articles[$i]['nom']; ?></span><span id="article_disponible"><?php if($stock[0]['quantite'] != 0){ ?><i class="fas fa-battery-full valid"></i><?php } else { ?><i class="fas fa-battery-empty unvalid"></i><?php } ?></span></header>
                     <main><?php echo $articles[$i]['description']; ?></main>
                     <footer>
+                        <?php if($stock[0]['quantite'] != 0){ ?>
                             <form action="?add_to_cart=<?php echo $articles[$i]['id']; ?>" method="post">
                                 <select name="quantity" id="add_to_cart_select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
+                                    <?php
+                                        $j = 0;
+                                        while ($j < $stock[0]['quantite'])
+                                            echo "<option value='".++$j."'>".$j."</option>";
+                                    ?>
                                 </select>
-                                <button name="submit"><i class="fas fa-cart-arrow-down"></i></button>
+                                <button name="submit" <?php if (!isset($_SESSION['login'])) { echo "disabled"; } ?>><i class="fas fa-cart-arrow-down"></i></button>
                             </form>
+                            <?php echo "<strong>".$articles[$i]['prix']."€</strong>"; ?>
+                        <?php } else { echo "Rupture"; } ?>
                         <a href="?article=<?php echo $articles[$i]['id']; ?>">En savoir plus <i class="fas fa-angle-double-right"></i></a>
                     </footer>
                 </div>
@@ -41,4 +39,5 @@
             }
         ?>
     </div>
+    <hr>
 </div>
