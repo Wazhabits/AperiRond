@@ -25,7 +25,6 @@ if(isset($_SESSION["error_message"])){
         $email = $_POST['email'];
         $pass = md5($_POST['password']);
         $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$pass."'";
-        echo $sql;
         $result = $database->query($sql);
         $result = $result->fetchAll();
         if (count($result) == 0)
