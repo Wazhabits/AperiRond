@@ -1,3 +1,4 @@
+<!-- PANIER -->
 <div class="container">
     <div id='cart' class="row col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <h2><i class="fas fa-shopping-cart"></i></h2>

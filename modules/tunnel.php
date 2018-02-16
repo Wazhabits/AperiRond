@@ -1,6 +1,8 @@
 <div class="container">
+    <!-- Tunnel de commande -->
     <div class="row">
         <?php
+        // Première partie du tunnel (Recapitulatif du panier
         if (!isset($_GET['part'])) {?>
                 <div id='cart' class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <h2><i class="fas fa-shopping-cart"></i></h2>
@@ -24,6 +26,7 @@
                     <a href="?cmd_usr=<?php echo $_GET['cmd_usr']; ?>&part=1" class="continue"><i class="fas fa-arrow-circle-right"></i> Continuer</a>
                 </div>
         <?php } else {
+                // Deuxième partie du tunnel (Informations de livraisons
                 if ($_GET['part'] == 1) {
                     if (count($user = GetTableSpe($database, "commandes", "user", $_SESSION['login'][0])) == 0) {
                         $user = GetTableSpe($database, "users", "id", $_SESSION['login'][0])
@@ -42,13 +45,14 @@
                         </form>
                         <?php
                         if (isset($_POST['submit'])) {
+                            // On crée une nouvelle commande
                             extract($_POST);
                             $database->exec("INSERT INTO `commandes` (`user`, `ref`, `nom`, `prenom`, `num_adresse`, `nom_adresse`, `ville`, `cp`, `valid`, `paid`) VALUES ('".$_SESSION['login'][0]."', '".$_SESSION['login'][0]."', '$nom', '$prenom', '$numr', '$rue', '$cp', '$ville', '0', '0')");
                             header("Location: index.php?cmd_usr=".$_GET['cmd_usr']."&part=2");
                         }
                     } else {
-                        ?>
-                        <?php echo "<span class='centered'>Ces informations ont été remplit avec celles de votre dernière commande</span>"; ?>
+                        // Si une ancienne commande existe déja
+                        echo "<span class='centered'>Ces informations ont été remplit avec celles de votre dernière commande</span>"; ?>
                         <form id="cmd_inf" action="" method="post" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="nom">Nom :</label><input name="nom" type="text" value="<?php echo $user[0]['nom']; ?>">
                             <label for="prenom">Prénom :</label><input name="prenom" type="text" value="<?php echo $user[0]['prenom']; ?>">
@@ -63,6 +67,7 @@
                         </form>
                         <?php
                         if (isset($_POST['submit'])) {
+                            // On met a jour la commande
                             extract($_POST);
                             $fields = array(10);
                             $val = [10];
@@ -93,6 +98,7 @@
                 }
                 else {
                     if ($_GET['part'] == 2) {
+                        // Récapitulatif de la comande + de l'adresse / nom de livraison
                         $cmd = GetTableSpe($database, "commandes", "user", $_SESSION['login'][0]);
                     ?>
                         <h2>Recapitulatif</h2>
@@ -136,6 +142,7 @@
                     }
                     else {
                         if ($_GET['part'] == 3) {
+                            // Partie paiement
                             ?>
                                 <h2 class="centered">Paiement</h2>
                                 <?php

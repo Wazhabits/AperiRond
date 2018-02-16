@@ -1,5 +1,5 @@
 <?php
-
+// Fonction SELECT * d'une table
 function GetTable($database, $table) {
     $sql = "SELECT * FROM " . $table;
     $query = $database->query($sql);
@@ -7,12 +7,15 @@ function GetTable($database, $table) {
     return ($result);
 }
 
+// FONCTION SELECT * D'une TABLE WHERE x = y
 function GetTableSpe($database, $table, $field, $value) {
     $sql = "SELECT * FROM " . $table . " WHERE " . $field . " = " . $value . " ORDER BY id DESC";
     $query = $database->query($sql);
     $result = $query->fetchAll();
     return ($result);
 }
+
+// Fonction ajouter des valeurs
 
 function InsertValues($_db_connected, $_table, $_fields, $_values){
     $i = 0;
@@ -38,6 +41,9 @@ function InsertValues($_db_connected, $_table, $_fields, $_values){
     return true;
 }
 
+// FONCTION SUPPRIMER DES DONNEES
+
+
 function DeleteValue($_db_connected, $_table, $_field, $_value) {
     $sql = "DELETE FROM `".$_table."` WHERE ".$_field." = ".$_value;
     if ($_db_connected->query($sql) == false)
@@ -45,6 +51,7 @@ function DeleteValue($_db_connected, $_table, $_field, $_value) {
     return true;
 }
 
+// MAJ DES DONNEES
 
 function db_updateValue($_db_connected, $_table, $_field, $_value, $col, $_id) {
     $sql = "UPDATE ".$_table." SET ".$_field." = '".$_value."' WHERE ".$col." = ".$_id;

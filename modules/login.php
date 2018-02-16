@@ -8,6 +8,7 @@ if(isset($_SESSION["error_message"])){
 <?php if(isset($error)) { ?>
     <h1><?php echo $error?></h1>
 <?php } ?>
+<!-- Page de connexion -->
 <div id="login_container" class="container">
     <div id="login_row" class="row">
     <form class="col-xs-2 col-sm-4 col-md-12 col-lg-12 col-xl-12" action="" method="post">
@@ -22,14 +23,18 @@ if(isset($_SESSION["error_message"])){
 
 <?php
     if (isset($_POST['submit'])) {
+        // On récupere les champs
         $email = $_POST['email'];
         $pass = md5($_POST['password']);
+        // On prépare la requête sql
         $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$pass."'";
         $result = $database->query($sql);
         $result = $result->fetchAll();
+        // Si la requête ne donne aucun résultat
         if (count($result) == 0)
             echo "Erreur de connexion";
         else {
+            // On créer la session
             $_SESSION['login'] = array(5);
             $_SESSION['login'][0] = $result[0]['id'];
             $_SESSION['login'][1] = $result[0]['email'];

@@ -1,5 +1,6 @@
 <div id="list_article_container" class="container">
     <div id="list_article_row" class="row">
+        <!-- LISTE D'ARTICLE -->
         <?php
         $i = 0;
         $articles = GetTable($database, "articles");
