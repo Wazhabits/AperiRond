@@ -47,7 +47,9 @@
                         if (isset($_POST['submit'])) {
                             // On crée une nouvelle commande
                             extract($_POST);
-                            $database->exec("INSERT INTO `commandes` (`user`, `ref`, `nom`, `prenom`, `num_adresse`, `nom_adresse`, `ville`, `cp`, `valid`, `paid`) VALUES ('".$_SESSION['login'][0]."', '".$_SESSION['login'][0]."', '$nom', '$prenom', '$numr', '$rue', '$cp', '$ville', '0', '0')");
+                            $sql = "INSERT INTO `commandes` (`user`, `ref`, `nom`, `prenom`, `num_adresse`, `nom_adresse`, `cp`, `ville`) VALUES ('".$_SESSION['login'][0]."', '".$_SESSION['login'][0]."', '$nom', '$prenom', '$numr', '$rue', '$cp', '$ville')";
+                            echo $sql;
+                            $database->exec($sql);
                             header("Location: index.php?cmd_usr=".$_GET['cmd_usr']."&part=2");
                         }
                     } else {
@@ -79,8 +81,6 @@
                             $fields[5] = "nom_adresse";
                             $fields[6] = "ville";
                             $fields[7] = "cp";
-                            $fields[8] = "valid";
-                            $fields[9] = "paid";
                             $val[0] = $_SESSION['login'][0];
                             $val[1] = $_SESSION['login'][0];
                             $val[2] = $prenom;
@@ -89,8 +89,6 @@
                             $val[5] = $rue;
                             $val[6] = $cp;
                             $val[7] = $ville;
-                            $val[8] = 0;
-                            $val[9] = 0;
                             UpdateValues($database, "commandes", $fields, $val, 'id', $user[0]['id']);
                             header("Location: index.php?cmd_usr=".$_GET['cmd_usr']."&part=2");
                         }

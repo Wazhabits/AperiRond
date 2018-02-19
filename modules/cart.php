@@ -6,7 +6,7 @@
             $cart = GetTableSpe($database, "cart", 'user', $_SESSION['login'][0]);
             $i = 0;
             $total = 0;
-            while ($i < count($cart) && $cart[$i]['end'] != 1) {
+            while ($i < count($cart)) {
                 $article = GetTableSpe($database, 'articles', 'id', $cart[$i]['article']);
                 echo "<p class='col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-12'><a href='?del_cart=".$cart[$i]['id']."'><i class=\"fas fa-times\"></i></a><i class=\"far fa-check-circle\"></i> <strong>" . $article[0]['nom'] . "</strong> (".$article[0]['prix']."€) x <strong>" . $cart[$i]['quantity'] . "</strong><span id='prix' class='right'>".($article[0]['prix'] * $cart[$i]['quantity'])."€</span></p>";
                 $total += ($article[0]['prix'] * $cart[$i]['quantity']);

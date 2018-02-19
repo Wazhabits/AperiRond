@@ -5,16 +5,14 @@
     $stock = GetTableSpe($database, 'stocks', 'id', $_GET['add_to_cart']);
     if (count($result_cart) == 0) {
         echo "ici";
-        $fields = array(4);
-        $values = array(4);
+        $fields = array(3);
+        $values = array(3);
         $fields[0] = "user";
         $fields[1] = "article";
         $fields[2] = "quantity";
-        $fields[3] = "end";
         $values[0] = $_SESSION['login'][0];
         $values[1] = $_GET['add_to_cart'];
         $values[2] = $_POST['quantity'];
-        $values[3] = 0;
         InsertValues($database, "cart", $fields, $values);
     }
     else {
